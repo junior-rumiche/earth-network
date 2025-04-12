@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Internet Flow Visualization | junior rumiche</title>
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Interactive 3D visualization of global internet traffic flow using Three.js. Created by junior rumiche.">
+    <meta name="keywords"
+        content="internet, traffic, flow, visualization, 3d, globe, three.js, webgl, junior rumiche, portfolio">
+    <meta name="author" content="junior rumiche">
+
+    <!-- Open Graph Meta Tags (for social media previews) -->
+    <meta property="og:title" content="Global Internet Flow Visualization | junior rumiche">
+    <meta property="og:description"
+        content="Interactive 3D visualization of global internet traffic flow using Three.js.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://junior-rumiche.vercel.app/">
+    <!-- Asume esta es la URL final, ajústala si es necesario -->
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Global Internet Flow Visualization | junior rumiche">
+    <meta name="twitter:description"
+        content="Interactive 3D visualization of global internet traffic flow using Three.js.">
+    <meta name="twitter:image" content="https://example.com/preview.jpg">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4/dist/index.min.js"></script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="loading-indicator">Loading Resources...</div>
+        <canvas id="globe-canvas"></canvas>
+
+        <button id="settings-toggle-button" title="Show/Hide Controls">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    clip-rule="evenodd" />
+            </svg>
+        </button>
+
+        <div id="controls">
+            <h2>Controls</h2>
+            <label for="node-count-slider">Visible Nodes:</label>
+            <div class="slider-container">
+                <input type="range" id="node-count-slider" name="node-count-slider" min="3" max="194" value="150">
+                <input type="number" id="node-count-number" name="node-count-number" min="3" max="194" value="150">
+            </div>
+
+            <button id="reset-button">Reset Sim</button>
+
+            <div class="info">
+                <p>Drag to rotate.</p>
+                <p>Scroll to zoom.</p>
+                <p>Adjust node count and reset.</p>
+                <p>
+                    <a href="https://github.com/junior-rumiche" target="_blank" rel="noopener noreferrer">GitHub</a> |
+                    <a href="https://junior-rumiche.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="locations.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

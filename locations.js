@@ -1,0 +1,211 @@
+/**
+ * @typedef {object} Location
+ * @property {string} name - El nombre de la ubicación.
+ * @property {number} lat - La latitud de la ubicación.
+ * @property {number} lon - La longitud de la ubicación.
+ */
+
+/**
+ * Lista de ubicaciones geográficas predefinidas.
+ * @type {Location[]}
+ */
+export const locations = [
+    // Norteamérica
+    { name: "Nueva York", lat: 40.7128, lon: -74.0060 },
+    { name: "Los Ángeles", lat: 34.0522, lon: -118.2437 },
+    { name: "Chicago", lat: 41.8781, lon: -87.6298 },
+    { name: "Houston", lat: 29.7604, lon: -95.3698 },
+    { name: "Toronto", lat: 43.6532, lon: -79.3832 },
+    { name: "Ciudad de México", lat: 19.4326, lon: -99.1332 },
+    { name: "Vancouver", lat: 49.2827, lon: -123.1207 },
+    { name: "Miami", lat: 25.7617, lon: -80.1918 },
+    { name: "Seattle", lat: 47.6062, lon: -122.3321 },
+    { name: "Montreal", lat: 45.5017, lon: -73.5673 },
+
+    // Sudamérica
+    { name: "São Paulo", lat: -23.5505, lon: -46.6333 },
+    { name: "Buenos Aires", lat: -34.6037, lon: -58.3816 },
+    { name: "Río de Janeiro", lat: -22.9068, lon: -43.1729 },
+    { name: "Bogotá", lat: 4.7110, lon: -74.0721 },
+    { name: "Lima", lat: -12.0464, lon: -77.0428 },
+    { name: "Santiago", lat: -33.4489, lon: -70.6693 },
+    { name: "Caracas", lat: 10.4806, lon: -66.9036 },
+    { name: "Quito", lat: -0.1807, lon: -78.4678 },
+    { name: "Montevideo", lat: -34.9011, lon: -56.1645 },
+    { name: "La Paz", lat: -16.4897, lon: -68.1193 }, // Altitud no relevante para lat/lon
+
+    // Europa
+    { name: "Londres", lat: 51.5074, lon: -0.1278 },
+    { name: "París", lat: 48.8566, lon: 2.3522 },
+    { name: "Berlín", lat: 52.5200, lon: 13.4050 },
+    { name: "Madrid", lat: 40.4168, lon: -3.7038 },
+    { name: "Roma", lat: 41.9028, lon: 12.4964 },
+    { name: "Moscú", lat: 55.7558, lon: 37.6173 },
+    { name: "Estambul", lat: 41.0082, lon: 28.9784 },
+    { name: "Ámsterdam", lat: 52.3676, lon: 4.9041 },
+    { name: "Viena", lat: 48.2082, lon: 16.3738 },
+    { name: "Praga", lat: 50.0755, lon: 14.4378 },
+    { name: "Estocolmo", lat: 59.3293, lon: 18.0686 },
+    { name: "Oslo", lat: 59.9139, lon: 10.7522 },
+    { name: "Helsinki", lat: 60.1699, lon: 24.9384 },
+    { name: "Copenhague", lat: 55.6761, lon: 12.5683 },
+    { name: "Varsovia", lat: 52.2297, lon: 21.0122 },
+    { name: "Budapest", lat: 47.4979, lon: 19.0402 },
+    { name: "Atenas", lat: 37.9838, lon: 23.7275 },
+    { name: "Lisboa", lat: 38.7223, lon: -9.1393 },
+    { name: "Dublín", lat: 53.3498, lon: -6.2603 },
+    { name: "Bruselas", lat: 50.8503, lon: 4.3517 },
+
+    // África
+    { name: "El Cairo", lat: 30.0444, lon: 31.2357 },
+    { name: "Lagos", lat: 6.5244, lon: 3.3792 },
+    { name: "Kinsasa", lat: -4.4419, lon: 15.2663 },
+    { name: "Johannesburgo", lat: -26.2041, lon: 28.0473 },
+    { name: "Nairobi", lat: -1.2921, lon: 36.8219 },
+    { name: "Casablanca", lat: 33.5731, lon: -7.5898 },
+    { name: "Argel", lat: 36.7754, lon: 3.0588 },
+    { name: "Accra", lat: 5.6037, lon: -0.1870 },
+    { name: "Ciudad del Cabo", lat: -33.9249, lon: 18.4241 },
+    { name: "Dakar", lat: 14.7167, lon: -17.4677 },
+
+    // Asia
+    { name: "Tokio", lat: 35.6895, lon: 139.6917 },
+    { name: "Shanghái", lat: 31.2304, lon: 121.4737 },
+    { name: "Pekín", lat: 39.9042, lon: 116.4074 },
+    { name: "Mumbai", lat: 19.0760, lon: 72.8777 },
+    { name: "Delhi", lat: 28.7041, lon: 77.1025 },
+    { name: "Seúl", lat: 37.5665, lon: 126.9780 },
+    { name: "Singapur", lat: 1.3521, lon: 103.8198 },
+    { name: "Hong Kong", lat: 22.3193, lon: 114.1694 },
+    { name: "Bangkok", lat: 13.7563, lon: 100.5018 },
+    { name: "Dubái", lat: 25.276987, lon: 55.296249 },
+    { name: "Riad", lat: 24.7136, lon: 46.6753 },
+    { name: "Teherán", lat: 35.6892, lon: 51.3890 },
+    { name: "Bagdad", lat: 33.3152, lon: 44.3661 },
+    { name: "Yakarta", lat: -6.2088, lon: 106.8456 },
+    { name: "Manila", lat: 14.5995, lon: 120.9842 },
+    { name: "Ho Chi Minh", lat: 10.7769, lon: 106.7009 },
+    { name: "Kuala Lumpur", lat: 3.1390, lon: 101.6869 },
+    { name: "Taipéi", lat: 25.0330, lon: 121.5654 },
+    { name: "Karachi", lat: 24.8607, lon: 67.0011 },
+    { name: "Daca", lat: 23.8103, lon: 90.4125 },
+
+    // Oceanía
+    { name: "Sídney", lat: -33.8688, lon: 151.2093 },
+    { name: "Melbourne", lat: -37.8136, lon: 144.9631 },
+    { name: "Auckland", lat: -36.8485, lon: 174.7633 },
+    { name: "Brisbane", lat: -27.4698, lon: 153.0251 },
+    { name: "Perth", lat: -31.9505, lon: 115.8605 },
+    { name: "Wellington", lat: -41.2865, lon: 174.7762 },
+    { name: "Adelaida", lat: -34.9285, lon: 138.6007 },
+    { name: "Honolulu", lat: 21.3069, lon: -157.8583 }, // Técnicamente Norteamérica, pero en el Pacífico
+    { name: "Suva", lat: -18.1416, lon: 178.4419 }, // Fiyi
+    { name: "Port Moresby", lat: -9.4438, lon: 147.1803 }, // Papúa Nueva Guinea
+
+    // Ubicaciones Adicionales para llegar a 100+
+    { name: "San Francisco", lat: 37.7749, lon: -122.4194 },
+    { name: "Dallas", lat: 32.7767, lon: -96.7970 },
+    { name: "Filadelfia", lat: 39.9526, lon: -75.1652 },
+    { name: "Atlanta", lat: 33.7490, lon: -84.3880 },
+    { name: "Denver", lat: 39.7392, lon: -104.9903 },
+    { name: "Phoenix", lat: 33.4484, lon: -112.0740 },
+    { name: "Calgary", lat: 51.0447, lon: -114.0719 },
+    { name: "Guadalajara", lat: 20.6597, lon: -103.3496 },
+    { name: "Monterrey", lat: 25.6866, lon: -100.3161 },
+    { name: "La Habana", lat: 23.1136, lon: -82.3666 },
+    { name: "San Juan", lat: 18.4655, lon: -66.1057 },
+    { name: "Medellín", lat: 6.2476, lon: -75.5658 },
+    { name: "Cali", lat: 3.4516, lon: -76.5320 },
+    { name: "Salvador", lat: -12.9777, lon: -38.5016 },
+    { name: "Fortaleza", lat: -3.7319, lon: -38.5267 },
+    { name: "Recife", lat: -8.0476, lon: -34.8770 },
+    { name: "Manaos", lat: -3.1190, lon: -60.0217 },
+    { name: "Asunción", lat: -25.2637, lon: -57.5759 },
+    { name: "Guayaquil", lat: -2.1710, lon: -79.9224 },
+    { name: "Maracaibo", lat: 10.6421, lon: -71.6125 },
+    { name: "Barcelona", lat: 41.3851, lon: 2.1734 },
+    { name: "Múnich", lat: 48.1351, lon: 11.5820 },
+    { name: "Hamburgo", lat: 53.5511, lon: 9.9937 },
+    { name: "San Petersburgo", lat: 59.9343, lon: 30.3351 },
+    { name: "Kiev", lat: 50.4501, lon: 30.5234 },
+    { name: "Bucarest", lat: 44.4268, lon: 26.1025 },
+    { name: "Sofía", lat: 42.6977, lon: 23.3219 },
+    { name: "Belgrado", lat: 44.7866, lon: 20.4489 },
+    { name: "Zagreb", lat: 45.8150, lon: 15.9819 },
+    { name: "Birmingham", lat: 52.4862, lon: -1.8904 },
+    { name: "Manchester", lat: 53.4808, lon: -2.2426 },
+    { name: "Glasgow", lat: 55.8642, lon: -4.2518 },
+    { name: "Lyon", lat: 45.7640, lon: 4.8357 },
+    { name: "Marsella", lat: 43.2965, lon: 5.3698 },
+    { name: "Milán", lat: 45.4642, lon: 9.1900 },
+    { name: "Nápoles", lat: 40.8518, lon: 14.2681 },
+    { name: "Ankara", lat: 39.9334, lon: 32.8597 },
+    { name: "Alejandría", lat: 31.2001, lon: 29.9187 },
+    { name: "Abiyán", lat: 5.359952, lon: -4.008256 },
+    { name: "Luanda", lat: -8.839988, lon: 13.289437 },
+    { name: "Dar es Salaam", lat: -6.792354, lon: 39.208328 },
+    { name: "Adís Abeba", lat: 9.02497, lon: 38.746891 },
+    { name: "Jartum", lat: 15.500654, lon: 32.559898 },
+    { name: "Túnez", lat: 36.806389, lon: 10.181667 },
+    { name: "Harare", lat: -17.825166, lon: 31.03351 },
+    { name: "Maputo", lat: -25.969188, lon: 32.573166 },
+    { name: "Osaka", lat: 34.6937, lon: 135.5023 },
+    { name: "Nagoya", lat: 35.1815, lon: 136.9066 },
+    { name: "Fukuoka", lat: 33.5904, lon: 130.4017 },
+    { name: "Sapporo", lat: 43.0618, lon: 141.3545 },
+    { name: "Busan", lat: 35.1796, lon: 129.0756 },
+    { name: "Incheon", lat: 37.4563, lon: 126.7052 },
+    { name: "Guangzhou", lat: 23.1291, lon: 113.2644 },
+    { name: "Shenzhen", lat: 22.5431, lon: 114.0579 },
+    { name: "Tianjin", lat: 39.0842, lon: 117.2009 },
+    { name: "Chongqing", lat: 29.5630, lon: 106.5515 },
+    { name: "Chengdu", lat: 30.5728, lon: 104.0668 },
+    { name: "Wuhan", lat: 30.5928, lon: 114.3055 },
+    { name: "Hangzhou", lat: 30.2741, lon: 120.1551 },
+    { name: "Nanjing", lat: 32.0603, lon: 118.7969 },
+    { name: "Xi'an", lat: 34.3416, lon: 108.9398 },
+    { name: "Kolkata", lat: 22.5726, lon: 88.3639 },
+    { name: "Bangalore", lat: 12.9716, lon: 77.5946 },
+    { name: "Chennai", lat: 13.0827, lon: 80.2707 },
+    { name: "Hyderabad", lat: 17.3850, lon: 78.4867 },
+    { name: "Ahmedabad", lat: 23.0225, lon: 72.5714 },
+    { name: "Pune", lat: 18.5204, lon: 73.8567 },
+    { name: "Surat", lat: 21.1702, lon: 72.8311 },
+    { name: "Lahore", lat: 31.5204, lon: 74.3587 },
+    { name: "Islamabad", lat: 33.6844, lon: 73.0479 },
+    { name: "Kabul", lat: 34.5553, lon: 69.2075 },
+    { name: "Taskent", lat: 41.2995, lon: 69.2401 },
+    { name: "Almaty", lat: 43.2220, lon: 76.8512 },
+    { name: "Nur-Sultan", lat: 51.1694, lon: 71.4491 }, // (Astana)
+    { name: "Biskek", lat: 42.8746, lon: 74.5698 },
+    { name: "Dusambé", lat: 38.5598, lon: 68.7870 },
+    { name: "Asjabad", lat: 37.9601, lon: 58.3261 },
+    { name: "Bakú", lat: 40.4093, lon: 49.8671 },
+    { name: "Tiflis", lat: 41.7151, lon: 44.8271 },
+    { name: "Ereván", lat: 40.1792, lon: 44.4991 },
+    { name: "Doha", lat: 25.276987, lon: 51.520008 },
+    { name: "Kuwait", lat: 29.3759, lon: 47.9774 },
+    { name: "Mascate", lat: 23.5880, lon: 58.3829 },
+    { name: "Saná", lat: 15.3694, lon: 44.1910 },
+    { name: "Amán", lat: 31.9454, lon: 35.9284 },
+    { name: "Beirut", lat: 33.8938, lon: 35.5018 },
+    { name: "Damasco", lat: 33.5138, lon: 36.2765 },
+    { name: "Jerusalén", lat: 31.7683, lon: 35.2137 },
+    { name: "Nicosia", lat: 35.1856, lon: 33.3823 },
+    { name: "Christchurch", lat: -43.5321, lon: 172.6362 },
+    { name: "Canberra", lat: -35.2809, lon: 149.1300 },
+    { name: "Hobart", lat: -42.8821, lon: 147.3272 },
+    { name: "Darwin", lat: -12.4634, lon: 130.8456 },
+    { name: "Papeete", lat: -17.5350, lon: -149.5690 },
+    { name: "Nouméa", lat: -22.2558, lon: 166.4505 },
+];
+
+/**
+ * Obtiene un subconjunto aleatorio de la lista de ubicaciones.
+ * @param {number} count - El número de ubicaciones aleatorias a devolver.
+ * @returns {Location[]} Un array con el número especificado de ubicaciones aleatorias.
+ */
+export function get_random_locations(count) {
+    const shuffled_locations = [...locations].sort(() => 0.5 - Math.random());
+    return shuffled_locations.slice(0, count);
+}
